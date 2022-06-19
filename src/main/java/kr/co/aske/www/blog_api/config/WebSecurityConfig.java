@@ -20,14 +20,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/api/user", "/api/login", "/api/user/token", "/api/sign-on").permitAll()
+                .antMatchers("/api/user", "/api/login", "/api/user/token", "/api/sign-on", "/view/user",
+                        "/view/user/login").permitAll()
                 .antMatchers("/").hasRole("user")
                 .antMatchers("/admin").hasRole("admin")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/api/user")
-                .defaultSuccessUrl("/api/user")
+                .defaultSuccessUrl("/view/blog")
                 .loginProcessingUrl("/api/login")
                 .and()
                 .logout()

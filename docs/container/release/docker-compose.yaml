@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  quick-maria:
+    image: mariadb:10
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_DATABASE: blog_api
+      MARIADB_USER: user
+      MARIADB_PASSWORD: qwer
+      MARIADB_ROOT_PASSWORD: qwer
+      TZ: Asia/Seoul
+    restart: always
+  api:
+    image: aske/quick-blog-api:0.2
+    ports:
+      - "99:80"
