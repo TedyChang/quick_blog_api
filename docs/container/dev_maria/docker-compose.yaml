@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  db:
+    image: mariadb:10
+    ports:
+      - 23306:3306
+    environment:
+      MARIADB_DATABASE: blog_api
+      MARIADB_USER: user
+      MARIADB_PASSWORD: qwer
+      MARIADB_ROOT_PASSWORD: qwer
+      TZ: Asia/Seoul
+    restart: always
